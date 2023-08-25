@@ -1,0 +1,77 @@
+title = "Demonstration"
+url = "/catalog"
+layout = "catalog"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Product\Models\Product"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "product"
+noRecordsMessage = "No records found"
+detailsPage = "product"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+==
+<div class="container">
+
+
+
+
+    <div class="grid lg:grid-cols-4 gap-4">
+        {% for record in records %}
+
+
+        <div class="flex flex-col lg:my-10 bg-white hover:shadow-lg transition-all cursor-pointer">
+            <img class="p-5" src="{{ record.foto.path }}" alt="">
+            <h3 class="p-5">{{ record.name }} </h3>
+
+
+
+            {% if detailsPage %}
+            <a class="px-5 py-5 btn-product bg-white transition-all hover:bg-primary border-t border-lightGray
+            hover:text-white w-full flex justify-between items-center" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) })}}">
+                {% endif %}
+                Подробнее
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+                {% if detailsPage %}
+            </a>
+            {% endif %}
+
+
+
+        </div>
+
+
+
+        {% else %}
+        <li class="no-data">{{ noRecordsMessage }}</li>
+        {% endfor %}
+
+    </div>
+
+
+
+    {% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+        <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+        <li class="{{ records.currentPage == page ? 'active' : null }}">
+            <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+        </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+        <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</div>

@@ -1,0 +1,51 @@
+.btn-secondary {
+    @apply bg-secondary;
+}
+
+
+.btn-primary {
+
+    @apply bg-primary;
+}
+
+
+
+
+.btn {
+    cursor: pointer;
+    border-radius: 0.3rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+
+}
+
+.btn:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+}
+
+.btn-lg {
+    width: 100%;
+
+}
+
+@media (min-width: 1024px) {
+
+    .btn-lg {
+        width: 33.333333%;
+
+    }
+
+}

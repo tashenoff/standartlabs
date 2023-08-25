@@ -1,0 +1,62 @@
+title = "product"
+url = "/product/:slug"
+layout = "products"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Alex\Product\Models\Product"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "product"
+notFoundMessage = "Record not found"
+
+[builderList]
+modelClass = "Alex\Product\Models\Cat"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "cat_name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% component 'builderDetails' %}
+
+
+<section class="bg-primary text-white relative">
+    <div class="h-[250px]">
+        <div class="container">
+            <div class="flex w-full items-center justify-start h-[200px]">
+                <h3 class="text-[40px]">{{ record.name }}</h3>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="container">
+    <div class="grid lg:grid-cols-3">
+        <div class="relative bottom-[50px] p-10 bg-white">
+            <img class="w-full h-full" src="{{ record.foto.path }}" alt="">
+            
+        </div>
+        <div class="lg:col-span-2 w-full p-5">
+            <h3 class="uppercase font-bold text-[18px] py-5">О товаре</h3>
+            <p>
+                {{ record.text|raw }}
+               
+               {% for cat in record.Categorys %}
+               {{ cat.cat_name }}
+               {% endfor %}
+
+            </p>
+            <p class="mt-3"><span class="font-bold mr-3">Артикул товара: </span>{{ record.article }}</p>
+            <div class="grid lg:grid-cols-2 w-full mt-10">
+                <button class="btn btn-secondary">Задать вопрос эксперту</button>
+                <button class="btn btn-primary lg:mt-0 mt-5 text-white lg:ml-5">отправить заявку</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>

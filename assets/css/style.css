@@ -1,0 +1,419 @@
+@font-face {
+    font-family: am_xix;
+    
+    src: url('../webfonts/VlaShu.ttf');
+    
+}
+
+@font-face {
+    font-family: "rostov";
+    src: url("../fonts/rostov.ttf.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+
+
+
+.bg-help {
+    background-image: url('../img/footer-banner.png');
+    
+}
+
+.bg-help::after {
+    content: '';
+    /* background-color: rgb(255 0 129 / 38%); */
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.thanks-input input {
+    width: 100%;
+    background-color: #e9e9e9;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.home__title {
+    font-size: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    @apply uppercase;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+    .home__title {
+        font-size: 33px;
+        line-height: 1.2;
+    }
+}
+
+.home__sub-title {
+    font-size: 40px;
+    /* letter-spacing: 0.07em; */
+    font-family: 'Roboto', sans-serif;
+
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+    .home__sub-title {
+        font-size: 35px;
+    }
+}
+
+
+
+main{
+    flex-grow: 1;
+ 
+}
+
+
+button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  
+  .bg-pages{
+    background-image: url('../img/gg.jpg');
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+  }
+
+
+
+
+  .bg-pages__title{
+  
+    font-weight: bold;
+    color: #fff;
+  }
+
+
+
+
+  .bg-pages::after{
+    content: '';
+    background-color: rgb(14 23 51 / 65%);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
+
+
+
+.bg-sale::before {
+    content: '';
+    background-color: rgb(0 0 0 / 68%);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    position: absolute;
+}
+
+.bg-offer {
+    background-image: url('../img/2.jpg');
+    position: relative;
+}
+
+
+.bg-home{
+    background-image: url('../img/home-banner.png');
+    position: relative;
+}
+
+.bg{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+
+.bg-offer::before {
+    content: '';
+    background-color: rgb(0 0 0 / 80%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+}
+
+.home {
+    height: 100vh;
+    
+}
+
+
+
+nav.scroll {
+    background-color: #A1572F;
+    color: #eef;
+}
+
+/* .scroll {
+    background-color: transparent;
+} */
+
+#img {
+    width: 100%;
+    height: 100%;
+    margin-top: -30px;
+    transform: skewY(-15deg);
+    transition: all 0.3s ease;
+}
+
+#img:hover {
+    background-size: 110%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    padding-top: 50px;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.z-70{
+    z-index: 70;
+}
+
+
+
+.content h2 {
+    font-size: 25px;
+    color: #353535;
+    letter-spacing: 0.07em;
+    font-family: 'Lobster', cursive;
+}
+
+.content p {
+    font-size: 16px;
+    margin-top: 1px;
+    color: #353535;
+}
+
+/* .home:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 33, 54, .7);
+    position: absolute;
+    z-index: 40;
+    top: 0;
+    left: 0;
+} */
+
+#myVideo>video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -20;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.banner__title {
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 34px;
+}
+
+.navlink {
+    font-size: 18px;
+}
+
+.title {
+    /* font-size: 40px; */
+    font-family: 'Pattaya', sans-serif;
+    position: relative;
+}
+
+.title::before {
+    background-image: url('../../img/right_border.svg');
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 110%;
+    top: 44%;
+}
+
+@media only screen and (max-width: 600px) {
+    .title::before {
+        display: none;
+    }
+}
+
+.title::after {
+    background-image: url('../../img/left_border.svg');
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 90%;
+    top: 44%;
+}
+
+@media only screen and (max-width: 600px) {
+    .title::after {
+        display: none;
+    }
+}
+
+
+
+html {
+    height: 100%;
+  }
+
+  
+body {
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  
+
+
+.navbar__right {
+    position: relative;
+    z-index: 50;
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+@media (min-width: 1024px) {
+
+    .navbar__right {
+        display: flex;
+    
+    }
+    
+}
+
+
+.footer-feedback__wrapp {
+    position: relative;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    /* height: 100vh; */
+    
+}
+
+@media (min-width: 1024px) {
+
+    .footer-feedback__wrapp {
+        margin-left: 0px;
+        margin-right: 0px;
+        height: 100%;
+        margin-top: 100px;
+    
+    }
+    
+}
+
+.footer-bottom {
+
+    flex-shrink: 0;
+  
+    width: 100%;
+    
+ 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer-bottom__copyright {
+    order: 2;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+@media (min-width: 1024px) {
+
+    .footer-bottom__copyright {
+        order: 1;
+        width: 33.333333%;
+        justify-content: flex-end;
+    
+    }
+    
+}
+
+
+#form_request {
+    transition: opacity 0.3s ease; /* Анимация для плавного появления и исчезновения */
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+
+  /* При открытии модального окна, изменяем его прозрачность и видимость */
+.modal.open {
+    visibility: visible!important;
+    opacity: 1!important;
+  }
+
+

@@ -1,0 +1,259 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    @apply border-b border-white border-opacity-25;
+    
+  }
+
+
+  .header__left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header__logo {
+    margin-right: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+
+  
+  .menu__list {
+    display: flex;
+    
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu__item {
+    line-height: 50px;
+    @apply lg:px-3;
+   
+  }
+  
+  .menu__link {
+    display: block;
+    @apply px-2 hover:text-secondary;
+    text-transform: uppercase;
+    
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+
+  
+  .header__phone {
+    margin-right: 10px;
+    
+  }
+  
+  .header__callback {
+   
+    border: none;
+    @apply rounded-sm font-bold;
+   
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header__callback {
+   
+      margin-right: 6px;
+    }
+
+  }
+  
+
+
+
+  @media screen and (max-width: 768px) {
+
+    .header__hamburger {
+        display: block!important;
+    }  
+
+    .header__phone {
+        margin-right: 20px;
+        display: none;
+      }
+
+
+      .header__left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        z-index: 0;
+        
+    }
+    
+    .menu__list {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu__item {
+        width: 100%;
+        border-bottom: 1px solid #0e1733;
+        font-size: 16px;
+        line-height: 1.5;
+        
+    }
+    
+    .menu__link {
+        display: block;
+        padding: 20px;
+        text-align: left;
+      
+    }
+    
+     
+    .menu.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 80;
+        top: 71px;
+    }
+    
+   
+    
+    .header__phone {
+        display: none;
+    }
+    
+    .header__callback {
+        margin-left: 10px;
+    }
+
+}
+
+
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+
+
+  .header__hamburger {
+   
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.header__hamburger-line {
+    width: 30px;
+    height: 3px;
+    @apply bg-primary;
+    margin: 5px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header__hamburger.is-active .header__hamburger-line:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__hamburger.is-active .header__hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.header__hamburger.is-active .header__hamburger-line:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+.overlay_menu.is-active {
+    opacity: 1!important;
+    pointer-events: auto;
+  }
+
+.overlay_menu {
+    position: fixed;
+    z-index: 70;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+
+  .menu__item--has-dropdown {
+    position: relative;
+  }
+  .menu__dropdown {
+    
+    top: 100%;
+    left: 0;
+    
+    width: auto;
+ 
+ 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  
+  .menu__item--has-dropdown:hover .menu__dropdown {
+    opacity: 1;
+    visibility: visible;
+    z-index: 80;
+  }
+  
+  
+  .menu__item--has-dropdown > .menu__link::after {
+    content: " ▼";
+  }
+  
+  .menu__dropdown-item {
+    width: 100%;
+    line-height: 1.5;
+    
+  }
+  
+  .menu__dropdown-link {
+    display: block;
+    padding: 20px;
+    @apply hover:text-secondary;
+    @apply ease-out duration-300;
+    text-align: left;
+  }
+
+
+  

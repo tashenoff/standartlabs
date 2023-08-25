@@ -1,0 +1,103 @@
+[builderList]
+modelClass = "Alex\Product\Models\Cat"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "cat_slug"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.querySelector('.header__hamburger');
+    var menusList = document.querySelector('.menus_list');
+  
+    function toggleMenusList() {
+      menusList.classList.toggle('hidden');
+    }
+  
+    hamburger.addEventListener('click', toggleMenusList);
+    document.addEventListener('click', function(event) {
+      var target = event.target;
+      var isHamburger = target.matches('.header__hamburger');
+  
+      if (!isHamburger) {
+        menusList.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+
+
+<div class=" container mx-auto ">
+  <div class="grid lg:grid-cols-12 grid-cols-1 w-full py-8">
+
+    <div class="lg:col-span-8 flex items-center w-full lg:justify-start justify-between">
+      
+      <div class="relative w-full flex">
+        
+        <div class="div">
+        <div class="header__hamburger lg:order-0 order-1">
+          <div class="header__hamburger-line"></div>
+          <div class="header__hamburger-line"></div>
+          <div class="header__hamburger-line"></div>
+        </div>
+
+
+        <ul class="absolute bg-white z-50 top-[40px] menus_list hidden">
+          {% for record in records %}
+          <li class="w-full hover:bg-primary hover:text-white py-2 px-5">
+            <a class="w-full" href="/cats/{{ record.cat_slug }}"> {{ record.cat_name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+        <a href="/" class="ml-5">
+
+          <img class="w-[60px]" src="{{ 'assets/images/logo.jpeg'|theme }}" alt="">
+  
+        </a>
+
+      
+      </div>
+
+
+   
+    </div>
+
+    <div class="lg:col-span-4">
+
+
+      <div class="flex w-full items-center justify-end lg:py-0 py-10">
+        <input type="text" placeholder="Поиск"
+          class="lg:w-64 w-full py-2 pl-10 pr-4 text-gray-700 rounded-lg focus:outline-none focus:shadow-outline">
+        <div class="inset-y-0 left-0 p-3 flex items-center bg-primary rounded-r-lg">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M13.8094 15.2235C10.6709 17.666 6.13206 17.4456 3.24701 14.5606C0.123034 11.4366 0.122775 6.37109 3.24701 3.24686C6.37124 0.122622 11.4367 0.122881 14.5607 3.24686C17.4458 6.13191 17.6661 10.6707 15.2236 13.8093L18.8034 17.389C18.9912 17.5768 19.0893 17.8212 19.0956 18.0662C19.1034 18.3319 19.0062 18.6004 18.8034 18.8032C18.4129 19.1937 17.78 19.194 17.3891 18.8032L13.8094 15.2235ZM13.1465 4.66107C15.4902 7.00474 15.4897 10.8032 13.1465 13.1464C10.8034 15.4895 7.0049 15.49 4.66122 13.1464C2.31755 10.8027 2.31807 7.00422 4.66122 4.66107C7.00438 2.31792 10.8028 2.3174 13.1465 4.66107Z"
+              fill="white" />
+          </svg>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+</div>
